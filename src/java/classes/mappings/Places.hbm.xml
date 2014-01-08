@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 Jan, 2014 11:37:28 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.tourplanner.domainobjects.Places" table="PLACES" catalog="tourplannerdb" >
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="placeId" type="string">
+            <column name="PLACE_ID" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" />
+        </property>
+        <property name="ratings" type="java.lang.Integer">
+            <column name="RATINGS" />
+        </property>
+
+    </class>
+</hibernate-mapping>
