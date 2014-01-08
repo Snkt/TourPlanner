@@ -17,6 +17,9 @@
         <property name="ratings" type="java.lang.Integer">
             <column name="RATINGS" />
         </property>
+        <property name="test" type="java.lang.Integer">
+            <column name="TEST" />
+        </property>
 
     </class>
 </hibernate-mapping>

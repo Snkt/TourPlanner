@@ -32,7 +32,24 @@
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
     
-
+<bean id="mySessionFactory" class="org.springframework.orm.hibernate3.
+    annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.tourplanner.domainobjects.Places</value>
+				<value>com.tourplanner.domainobjects.Profile</value>
+				<value>com.tourplanner.domainobjects.Tour</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+	</bean>
 
     <!--
     The index controller.

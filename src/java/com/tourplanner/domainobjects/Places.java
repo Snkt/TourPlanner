@@ -13,6 +13,15 @@ public class Places  implements java.io.Serializable {
      private String placeId;
      private String description;
      private Integer ratings;
+     private Integer test;
+
+    public Integer getTest() {
+        return test;
+    }
+
+    public void setTest(Integer test) {
+        this.test = test;
+    }
 
     public Places() {
     }
