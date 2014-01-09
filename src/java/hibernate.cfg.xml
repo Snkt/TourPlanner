@@ -9,8 +9,8 @@
     <property name="hibernate.connection.password">mysql</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="connection.pool_size">1</property>
-    	<!--<property name="show_sql">true</property>-->
-        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+    	<property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping resource="classes/mappings/Tour.hbm.xml"/>
     <!--<mapping resource="classes/mappings/Profile.hbm.xml"/>-->
     <mapping resource="classes/mappings/Places.hbm.xml"/>

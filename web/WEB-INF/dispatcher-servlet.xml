@@ -23,6 +23,8 @@
                 <prop key="index.htm">indexController</prop>
                 <prop key="login.htm">loginController</prop>
                 <prop key="loginauth.htm">loginController</prop>
+                <prop key="get.htm">tempController</prop>
+                <prop key="save.htm">tempController</prop>
             </props>
         </property>
     </bean>
@@ -32,24 +34,24 @@
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
     
-<bean id="mySessionFactory" class="org.springframework.orm.hibernate3.
-    annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource" ref="myDataSource" />
-		<property name="annotatedClasses">
-			<list>
-				<value>com.tourplanner.domainobjects.Places</value>
-				<value>com.tourplanner.domainobjects.Profile</value>
-				<value>com.tourplanner.domainobjects.Tour</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
-			</props>
-		</property>
-	</bean>
+    <!--<bean id="mySessionFactory" class="org.springframework.orm.hibernate3.
+annotation.AnnotationSessionFactoryBean">
+            <property name="dataSource" ref="myDataSource" />
+            <property name="annotatedClasses">
+                    <list>
+                            <value>com.tourplanner.domainobjects.Places</value>
+                            <value>com.tourplanner.domainobjects.Profile</value>
+                            <value>com.tourplanner.domainobjects.Tour</value>
+                    </list>
+            </property>
+            <property name="hibernateProperties">
+                    <props>
+                            <prop key="hibernate.dialect"> org.hibernate.dialect.HSQLDialect</prop>
+                            <prop key="hibernate.show_sql">true</prop>
+                            <prop key="hibernate.hbm2ddl.auto">create</prop>
+                    </props>
+            </property>
+    </bean>-->
 
     <!--
     The index controller.
@@ -66,7 +68,24 @@
         </property>
     </bean>
     
+        
+    <!--DAO layerss-->    
     <bean name="profileDAO"
-    class="com.tourplanner.dao.impl.ProfileDAOImpl"/>
+          class="com.tourplanner.dao.impl.ProfileDAOImpl"/>
+
+    
+    
+    
+    <!--Controllerssss-->
+    
+    <bean name="tempController"
+          class="com.tourplanner.controllers.TempController">
+        <property name="profileDAO">
+            <ref bean="profileDAO"></ref>
+        </property>
+    </bean>
+
+    
+
 
 </beans>

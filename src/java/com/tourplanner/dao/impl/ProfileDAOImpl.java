@@ -7,7 +7,10 @@ package com.tourplanner.dao.impl;
 import com.hibernateutils.HibernateUtil;
 import com.tourplanner.dao.ProfileDAO;
 import com.tourplanner.domainobjects.Profile;
+import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -21,6 +24,23 @@ public class ProfileDAOImpl implements ProfileDAO{
         Profile profile = (Profile)query.uniqueResult();
     return profile;
     
+    }
+
+    @Override
+    public void addProfile(Profile profile) {
+        Session session = HibernateUtil.getSessionFactory().openSession();//.saveOrUpdate(this);
+        session.saveOrUpdate(profile);
+        Transaction transaction = session.beginTransaction();
+        transaction.commit();
+        session.close();
+    }
+
+    @Override
+    public List<Profile> getAllProfiles() {
+        Query query = HibernateUtil.getSessionFactory().openSession().createQuery("from Profile");
+        return query.list();
+        
+        
     }
     
 }

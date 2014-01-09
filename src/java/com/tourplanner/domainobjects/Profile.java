@@ -27,6 +27,17 @@ public class Profile implements java.io.Serializable {
     private String userName;
     @Column(name = "PROFILE_IMAGE_PATH")
     private String profileImagePath;
+    
+    @Column( name = "FILEIMAGE" ,columnDefinition = "mediumblob")
+    private byte[] fileimage;
+
+    public byte[] getFileimage() {
+        return fileimage;
+    }
+
+    public void setFileimage(byte[] fileimage) {
+        this.fileimage = fileimage;
+    }
 
     public Profile() {
     }

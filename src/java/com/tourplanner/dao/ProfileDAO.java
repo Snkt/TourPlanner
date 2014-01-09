@@ -5,6 +5,7 @@
 package com.tourplanner.dao;
 
 import com.tourplanner.domainobjects.Profile;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,6 @@ import com.tourplanner.domainobjects.Profile;
  */
 public interface ProfileDAO {
     public Profile getProfile(String username,String password );
+    public void addProfile(Profile profile);
+    public List<Profile> getAllProfiles();
 }
